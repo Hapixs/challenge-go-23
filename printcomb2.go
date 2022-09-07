@@ -8,7 +8,7 @@ func PrintComb2() {
 
 	k := 0
 	l := 0
-	for ref := 0; ref < 9; ref++ {
+	for ref := 0; ref <= 9; ref++ {
 		for sref := 0; sref <= 9; sref++ {
 			for tref := 0; tref < 9; tref++ {
 				j = sref
@@ -26,7 +26,10 @@ func PrintComb2() {
 					z01.PrintRune(' ')
 				}
 			}
-			i = ref + 1
+			i = ref
+			if ref == 9 {
+				continue
+			}
 			k = ref + 1
 		}
 	}
