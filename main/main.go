@@ -5,7 +5,7 @@ import "piscine"
 func main() {
 	// piscine.PrintComb()
 	// piscine.PrintComb2()
-	// piscine.PrintNbr(3008695490013063584)
+	piscine.PrintNbr(-9)
 
-	piscine.PrintCombN(1)
+	// piscine.PrintCombN(1)
 }

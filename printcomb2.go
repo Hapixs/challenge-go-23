@@ -2,6 +2,8 @@ package piscine
 
 import "github.com/01-edu/z01"
 
+// La j'avou j'ai la flème pour les boucles
+// Principe asse similaire au 'printcomb'
 func PrintComb2() {
 	for i := 0; i <= 9; i++ {
 		for j := 0; j <= 9; j++ {

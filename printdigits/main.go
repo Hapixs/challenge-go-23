@@ -2,10 +2,9 @@ package main
 
 import "github.com/01-edu/z01"
 
-// simple function
-// reverse print alaphabet using ASCII ref to optimize
+// Fonction principal
 func main() {
-	for i := 48; i <= 57; i++ {
+	for i := 48; i <= 57; i++ { // Même principe que 'printalphabet' mais avec le code ASCII des chiffres.
 		z01.PrintRune(rune(i))
 	}
 	z01.PrintRune('\n')
