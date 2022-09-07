@@ -3,23 +3,15 @@ package piscine
 import "github.com/01-edu/z01"
 
 func PrintComb() {
-	for first := 0; first < 9; first++ {
-		for second := 0; second <= 9; second++ {
-			for second <= first && first != 9 {
-				second++
-			}
-			for third := 0; third <= 9; third++ {
-				if second != 9 {
-					for third <= second && first != 9 && second != 9 {
-						third++
-					}
-					z01.PrintRune(rune(first + 48))
-					z01.PrintRune(rune(second + 48))
-					z01.PrintRune(rune(third + 48))
-					if !(first == 7 && second == 8 && third == 9) {
-						z01.PrintRune(',')
-						z01.PrintRune(' ')
-					}
+	for ref := 0; ref <= 7; ref++ {
+		for sc := ref + 1; sc <= 8; sc++ {
+			for th := sc + 1; th <= 9; th++ {
+				z01.PrintRune(rune(ref + 48))
+				z01.PrintRune(rune(sc + 48))
+				z01.PrintRune(rune(th + 48))
+				if !(ref == 7 && sc == 8 && th == 9) {
+					z01.PrintRune(',')
+					z01.PrintRune(' ')
 				}
 			}
 		}
