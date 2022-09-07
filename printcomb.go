@@ -8,7 +8,7 @@ func PrintComb() {
 			for second <= first && first != 9 {
 				second++
 			}
-			for third := 0; third < 9; third++ {
+			for third := 0; third <= 9; third++ {
 				for third <= second && first != 9 && second != 9 {
 					third++
 				}
