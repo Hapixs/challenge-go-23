@@ -16,7 +16,7 @@ func PrintComb() {
 					z01.PrintRune(rune(first + 48))
 					z01.PrintRune(rune(second + 48))
 					z01.PrintRune(rune(third + 48))
-					if first != 7 && second != 8 && third != 9 {
+					if !(first == 7 && second == 8 && third == 9) {
 						z01.PrintRune(',')
 						z01.PrintRune(' ')
 					}
