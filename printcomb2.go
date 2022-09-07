@@ -29,7 +29,7 @@ func PrintComb2() {
 	}*/
 
 	for i := 0; i <= 9; i++ {
-		for j := 0; j < 9; j++ {
+		for j := 0; j <= 9; j++ {
 			for k := i; k <= 9; k++ {
 				for l := 0; l <= 9; l++ {
 					if (i == k && j == l) || (k <= i && l <= j) {
