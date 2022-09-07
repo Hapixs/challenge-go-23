@@ -7,5 +7,5 @@ func main() {
 	// piscine.PrintComb2()
 	// piscine.PrintNbr(3008695490013063584)
 
-	piscine.PrintCombN(5)
+	piscine.PrintCombN(1)
 }
