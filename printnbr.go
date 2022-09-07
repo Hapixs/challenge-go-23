@@ -4,7 +4,9 @@ import "github.com/01-edu/z01"
 
 func PrintNbr(n int) {
 	negative := n < 0
-
+	if negative && (n*-1) != 0 {
+		n *= -1
+	}
 	if negative {
 		z01.PrintRune('-')
 	}
