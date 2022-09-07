@@ -1,12 +1,12 @@
 package main
 
-import "fmt"
+import "github.com/01-edu/z01"
 
 // simple function
 // print alaphabet using ASCII ref to optimize
 func main() {
 	for i := 97; i <= 122; i++ {
-		fmt.Printf("%c", i)
+		z01.PrintRune(rune(i))
 	}
-	fmt.Print("\n")
+	z01.PrintRune('\n')
 }
