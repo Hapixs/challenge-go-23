@@ -6,7 +6,7 @@ func BasicAtoi(s string) int {
 	}
 	str := ""
 	runes := []rune{}
-	for _, st := range str {
+	for _, st := range s {
 		runes = append(runes, st)
 	}
 
