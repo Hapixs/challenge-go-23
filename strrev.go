@@ -1,10 +1,13 @@
 package piscine
 
-import "strings"
-
-func StrRev(s string) {
-	fn := ""
-	for i := len(strings.Split(s, "")); i >= 0; i-- {
-		fn += strings.Split(s, "")[i]
+func StrRev(s string) string {
+	runes := []rune{}
+	for _, st := range s {
+		runes = append(runes, st)
 	}
+	s = ""
+	for i := len(runes); i >= 0; i-- {
+		s += string(runes[i])
+	}
+	return s
 }
