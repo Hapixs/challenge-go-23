@@ -7,5 +7,5 @@ func main() {
 
 	// piscine.PrintCombN(11)
 
-	// println(piscine.BasicAtoi("00090182480930000"))
+	// piscine.BasicAtoi("00090182480930000")
 }
