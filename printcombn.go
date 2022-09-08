@@ -49,4 +49,4 @@ func displayRunes(runes []rune, lastLoop bool) {
 	}
 }
 
-//bingo ca marche
+// bingo ca marche
