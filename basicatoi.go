@@ -19,7 +19,7 @@ func BasicAtoi(s string) int {
 	total := 0
 	for i := 0; i < len(runes); i++ {
 		for j := 0; j <= 9; j++ {
-			if strings.Split(str, "")[i] == string(rune(j+48)) {
+			if string(runes[i]) == string(rune(j+48)) {
 				total = total*10 + j
 			}
 		}
