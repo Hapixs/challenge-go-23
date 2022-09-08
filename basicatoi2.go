@@ -6,9 +6,10 @@ func BasicAtoi2(s string) int {
 	}
 	str := ""
 	runes := populateArray([]rune{}, s)
-
+	patchZero := false
 	for i, c := range runes {
-		if i > 0 && c == runes[i-1] {
+		if !patchZero && i > 0 && c != '0' {
+			patchZero = true
 			continue
 		}
 		str += string(c)
