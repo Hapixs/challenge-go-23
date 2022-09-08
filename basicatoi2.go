@@ -8,8 +8,10 @@ func BasicAtoi2(s string) int {
 	runes := populateArray([]rune{}, s)
 	patchZero := false
 	for i, c := range runes {
-		if !patchZero && i > 0 && c != '0' {
+		if !patchZero && i >= 0 && c != '0' {
 			patchZero = true
+		}
+		if !patchZero && c == '0' {
 			continue
 		}
 		str += string(c)
