@@ -2,7 +2,7 @@ package piscine // Package piscine, qui peut être importer depuis les autres pa
 
 import "github.com/01-edu/z01"
 
-//Fonction isNegative
+// Fonction isNegative
 // Cette fonction affiche si un nombre 'nb' pris en entrer est négatif ou non
 // Le format est tel que:
 // T = Oui donc négatif (T pour true)
