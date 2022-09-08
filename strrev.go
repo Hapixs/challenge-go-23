@@ -6,7 +6,7 @@ func StrRev(s string) string {
 		runes = append(runes, st)
 	}
 	s = ""
-	for i := len(runes); i >= 0; i-- {
+	for i := len(runes) - 1; i >= 0; i-- {
 		s += string(runes[i])
 	}
 	return s
