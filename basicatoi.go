@@ -1,19 +1,17 @@
 package piscine
 
-import "strings"
-
 func BasicAtoi(s string) int {
 	str := ""
-
-	for i, c := range s {
-		if i > 0 && string(c) == strings.Split(s, "")[i-1] {
-			continue
-		}
-		str += string(c)
-	}
 	runes := []rune{}
 	for _, st := range str {
 		runes = append(runes, st)
+	}
+
+	for i, c := range s {
+		if i > 0 && string(c) == string(runes[i-1]) {
+			continue
+		}
+		str += string(c)
 	}
 	s = ""
 	total := 0
