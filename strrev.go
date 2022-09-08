@@ -1,13 +1,9 @@
 package piscine
 
 func StrRev(s string) string {
-	runes := []rune{}
-	for _, st := range s {
-		runes = append(runes, st)
+	str := ""
+	for _, c := range s {
+		str = string(c) + str
 	}
-	s = ""
-	for i := len(runes) - 1; i >= 0; i-- {
-		s += string(runes[i])
-	}
-	return s
+	return str
 }
