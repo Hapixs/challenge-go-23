@@ -1,5 +1,5 @@
 package piscine
 
-func Strlen(s string) int {
+func StrLen(s string) int {
 	return len(s)
 }
