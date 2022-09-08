@@ -7,6 +7,7 @@ func Atoi(s string) int {
 	str := ""
 	runes := atoiPopulateArray([]rune{}, s)
 	patchZero := false
+	patchPos := false
 	for i, c := range runes {
 		if !patchZero && i >= 0 && c != '0' {
 			patchZero = true
@@ -14,27 +15,28 @@ func Atoi(s string) int {
 		if !patchZero && c == '0' {
 			continue
 		}
+		if !patchPos && i > 0 && c == '+' {
+			patchPos = true
+		}
+		if patchPos && c == '+' {
+			return 0
+		}
 		str += string(c)
 	}
 	runes = atoiPopulateArray([]rune{}, str)
-
 	total := 0
+	totalNegative := false
 	for i := 0; i < len(runes); i++ {
 		for j := 0; j <= 10; j++ {
 			if j == 10 {
-				if runes[i] == ' ' {
+				if runes[i] == ' ' || runes[i] == '+' {
 					break
 				}
 				if runes[i] == '-' {
-					if total > 0 {
-						total *= -1
+					if totalNegative {
+						return 0
 					}
-					break
-				}
-				if runes[i] == '+' {
-					if total < 0 {
-						total *= -1
-					}
+					totalNegative = true
 					break
 				}
 				return 0
@@ -44,6 +46,9 @@ func Atoi(s string) int {
 				break
 			}
 		}
+	}
+	if totalNegative {
+		total *= -1
 	}
 	return total
 }
