@@ -2,7 +2,7 @@ package piscine
 
 import "github.com/01-edu/z01"
 
-//Fonction principal avec le nombre à afficher 'n'
+// Fonction principal avec le nombre à afficher 'n'
 func PrintNbr(n int) {
 	// On commence par verifier si il est négatif
 	// Les nombres négatifs trop grands ne peuvent pas être passer en positif, en revanche certains nombre négatifs transferable en positif font buger si il ne sont pas mis en positifs
@@ -21,7 +21,7 @@ func PrintNbr(n int) {
 	rec(n) // Début de la méchante récursion
 }
 
-//Fonction de récursion
+// Fonction de récursion
 // Elle fait un tas de calcules shelou
 func rec(n int) { // n étant le nombre (négatif / positif)
 	// Pour ce faire nous allons trouver chaques chiffres en dessous de la dizaine
