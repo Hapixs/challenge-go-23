@@ -19,7 +19,10 @@ func BasicAtoi2(s string) int {
 	s = ""
 	total := 0
 	for i := 0; i < len(runes); i++ {
-		for j := 0; j <= 9; j++ {
+		for j := 0; j <= 10; j++ {
+			if i == 10 {
+				return 0
+			}
 			if string(runes[i]) == string(rune(j+48)) {
 				total = total*10 + j
 			}
