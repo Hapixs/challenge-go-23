@@ -1,14 +1,17 @@
 package piscine
 
 func BasicAtoi(s string) int {
+	if s == "" {
+		return 0
+	}
 	str := ""
 	runes := []rune{}
 	for _, st := range str {
 		runes = append(runes, st)
 	}
 
-	for i, c := range s {
-		if i > 0 && string(c) == string(runes[i-1]) {
+	for i, c := range runes {
+		if i > 0 && c == runes[i-1] {
 			continue
 		}
 		str += string(c)
