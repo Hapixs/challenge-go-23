@@ -14,7 +14,7 @@ func SortIntegerTable(table []int) {
 		}
 	}
 	tb := []int{}
-	for i := 0; i <= maxValue; i++ {
+	for i := minValue; i <= maxValue; i++ {
 		if val, ok := m[i]; ok {
 			tb = append(tb, val)
 		}
