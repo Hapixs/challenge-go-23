@@ -32,7 +32,7 @@ func Atoi(s string) int {
 				if runes[i] == ' ' || runes[i] == '+' {
 					break
 				}
-				if runes[i] == '-' {
+				if runes[i] == '-' && i == 0 {
 					if totalNegative {
 						return 0
 					}
