@@ -1,13 +1,16 @@
 package piscine
 
 func SortIntegerTable(table []int) {
-	table[0] = 100
 	m := make(map[int]int)
-	maxValue := 0
+	var maxValue int = table[0]
+	var minValue int = table[0]
 	for _, i := range table {
 		m[i] = i
 		if i > maxValue {
 			maxValue = i
+		}
+		if i < minValue {
+			minValue = i
 		}
 	}
 	tb := []int{}
