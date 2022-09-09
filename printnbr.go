@@ -7,14 +7,11 @@ func PrintNbr(n int) {
 	// On commence par verifier si il est négatif
 	// Les nombres négatifs trop grands ne peuvent pas être passer en positif, en revanche certains nombre négatifs transferable en positif font buger si il ne sont pas mis en positifs
 	// Donc on check si on peut le passer en positif sinon osef ca marchera quand même
-	negative := n < 0
-	if negative && (n*-1) != 0 { // n*-1 renvois n positif, si le resultat est 0 alors on ne peux pas passer n en positif
-		n *= -1 // ici on passe n en positif t'as vu :D
-	}
-
-	// Première étape,
-	// Si le chiffre est négatif, alors on affiche un '-' en premier.
-	if negative {
+	if n < 0 {
+		if n*-1 != 0 { // n*-1 renvois n positif, si le resultat est 0 alors on ne peux pas passer n en positif (c'est que le nombre négatif est trop grand (en bytes) pour passer positif)
+			n *= -1 // ici on passe n en positif t'as vu :D
+		}
+		// Si le chiffre est négatif, alors on affiche un '-' en premier.
 		z01.PrintRune('-')
 	}
 
