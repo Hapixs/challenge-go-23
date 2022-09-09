@@ -1,6 +1,7 @@
 package piscine
 
 func BasicAtoi2(s string) int {
+	// Algo de base pour ce cas précis
 	/*total := 0
 	for _, c := range s {
 		if c >= 48 && c <= 57 {
@@ -10,5 +11,5 @@ func BasicAtoi2(s string) int {
 		}
 	}
 	return total*/
-	return Atoi(s)
+	return Atoi(s) // Appelle la fonction Atoi(s) dans le fichier atoi.go
 }
