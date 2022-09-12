@@ -22,11 +22,8 @@ func Solve(n int) {
 		Recurse(start, current, n)
 	}
 	for _, result := range results {
-		for i, rs := range result {
-			if i == 0 && rs.x == 0 {
-				continue
-			}
-			z01.PrintRune(rune(rs.x + 48))
+		for _, rs := range result {
+			z01.PrintRune(rune(rs.x + 1 + 48))
 		}
 		z01.PrintRune('\n')
 	}
@@ -51,6 +48,7 @@ func Recurse(point Point, current []Point, n int) {
 			}
 		}
 	}
+
 }
 
 func CanPlace(target Point, board []Point) bool {
@@ -64,7 +62,14 @@ func CanPlace(target Point, board []Point) bool {
 
 func CanAttack(a, b Point) bool {
 	// fmt.Print(a, b)
-	answer := a.x == b.x || a.y == b.y || float64(a.y-b.y) == float64(a.x-b.x)
+	answer := a.x == b.x || a.y == b.y || Abs(float64(a.y-b.y)) == Abs(float64(a.x-b.x))
 	// fmt.Print(answer)
 	return answer
+}
+
+func Abs(f float64) float64 {
+	if f < 0 {
+		return f * float64(-1)
+	}
+	return f
 }
