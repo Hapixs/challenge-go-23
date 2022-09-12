@@ -52,6 +52,7 @@ func Recurse(point Point, current []Point, n int) {
 		}
 	}
 }
+
 func CanPlace(target Point, board []Point) bool {
 	for _, point := range board {
 		if CanAttack(point, target) {
