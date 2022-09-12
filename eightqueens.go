@@ -43,7 +43,6 @@ func Recurse(point Point, current []Point, n int) {
 				for row := point.y; row < n; row++ {
 					nextStart := Point{x: col, y: row}
 					Recurse(nextStart, current, n)
-
 				}
 			}
 		}
