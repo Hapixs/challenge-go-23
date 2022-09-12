@@ -5,7 +5,7 @@ func IterativePower(nb, power int) int {
 		return 0
 	}
 	fnl := nb
-	for i := 0; i < power; i++ {
+	for i := 1; i < power; i++ {
 		fnl *= nb
 	}
 	return fnl
