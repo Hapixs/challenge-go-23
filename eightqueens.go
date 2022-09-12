@@ -48,7 +48,6 @@ func Recurse(point Point, current []Point, n int) {
 					Recurse(nextStart, current, n)
 
 				}
-
 			}
 		}
 	}
@@ -63,8 +62,8 @@ func CanPlace(target Point, board []Point) bool {
 }
 
 func CanAttack(a, b Point) bool {
-	//fmt.Print(a, b)
+	// fmt.Print(a, b)
 	answer := a.x == b.x || a.y == b.y || float64(a.y-b.y) == float64(a.x-b.x)
-	//fmt.Print(answer)
+	// fmt.Print(answer)
 	return answer
 }
