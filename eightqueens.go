@@ -47,7 +47,6 @@ func Recurse(point Point, current []Point, n int) {
 			}
 		}
 	}
-
 }
 
 func CanPlace(target Point, board []Point) bool {
