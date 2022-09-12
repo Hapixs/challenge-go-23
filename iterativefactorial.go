@@ -7,13 +7,12 @@ func IterativeFactorial(nb int) int {
 	if nb == 0 {
 		return 1
 	}
-	return factorise(nb) * nb
+	return factorise(nb, 1, 1) * nb
 }
 
-func factorise(n int) int {
-	fact := 1
-	for i := 1; i < n; i++ {
-		fact = fact * i
+func factorise(n int, index int, fact int) int {
+	if index == n-1 {
+		return fact * index
 	}
-	return fact
+	return factorise(n, index+1, fact*index)
 }
