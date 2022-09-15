@@ -17,7 +17,7 @@ func defineTab(n int) []int {
 		}
 		if (n-i)%10 == 0 {
 			tab = append(tab, n)
-			tab = append(tab, defineTab(n-i/10)...) // On rebalance donc notre chiffre n dans la fonction de récursion en enlevant ce qu'on vient de trouver (i) et on le divise par 10 pour atteindre la prochaine unité à trouver
+			tab = append(tab, defineTab((n-i)/10)...) // On rebalance donc notre chiffre n dans la fonction de récursion en enlevant ce qu'on vient de trouver (i) et on le divise par 10 pour atteindre la prochaine unité à trouver
 			return tab
 		}
 	}
