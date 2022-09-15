@@ -19,7 +19,12 @@ func PrintNbrBase(nbr int, base string) {
 	}
 	nbase := len([]rune(base))
 	str := ""
+	bound := 0
 	for nbr/nbase > 0 {
+		bound++
+		if bound == 5000 {
+			break
+		}
 		str = string(base[nbr%nbase]) + str
 		nbr = nbr / nbase
 	}
