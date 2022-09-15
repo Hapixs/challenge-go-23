@@ -5,6 +5,10 @@ import (
 )
 
 func PrintNbrInOrder(n int) {
+	if n == 0 {
+		z01.PrintRune(rune(48))
+		return
+	}
 	tab := defineTab(n)
 	SortIntegerTable(tab)
 	for _, i := range tab {
