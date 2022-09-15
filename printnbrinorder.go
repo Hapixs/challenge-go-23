@@ -1,10 +1,14 @@
 package piscine
 
+import (
+	"github.com/01-edu/z01"
+)
+
 func PrintNbrInOrder(n int) {
 	tab := defineTab(n)
 	SortIntegerTable(tab)
 	for _, i := range tab {
-		PrintNbr(i)
+		z01.PrintRune(rune(i + 48))
 	}
 }
 
@@ -18,5 +22,8 @@ func defineTab(n int) []int {
 			}
 		}
 	}
-	return append(tab, n)
+	if n > 0 {
+		return append(tab, n)
+	}
+	return tab
 }
