@@ -8,11 +8,9 @@ func AtoiBase(s string, base string) int {
 			}
 		}
 	}
-
 	nbase := len([]rune(base))
-	s = StrRev(s)
 	toConvert := 0
-	for i, c := range s {
+	for i, c := range StrRev(s) {
 		for y, b := range base {
 			if c == b {
 				toConvert += y * pow(nbase, nbase, i)
@@ -25,8 +23,7 @@ func AtoiBase(s string, base string) int {
 func pow(n, nb, rpower int) int {
 	if n == nb && rpower < 1 {
 		return 1
-	}
-	if rpower <= 1 {
+	} else if rpower <= 1 {
 		return nb
 	}
 	return recPower(n, nb*n, rpower-1)
