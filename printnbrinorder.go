@@ -18,7 +18,7 @@ func defineTab(n int) []int {
 			}
 			if (n-i)%10 == 0 {
 				tab = append(tab, i)
-				n = (n - i) % 10
+				n = (n - i) / 10
 			}
 		}
 	}
