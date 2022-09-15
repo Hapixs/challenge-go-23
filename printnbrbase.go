@@ -15,15 +15,12 @@ func PrintNbrBase(nbr int, base string) {
 	negative := false
 	if nbr < 0 {
 		negative = true
-		nbr = nbr * -1
 	}
 	nbase := len([]rune(base))
 	str := ""
-	bound := 0
-	for nbr/nbase > 0 {
-		bound++
-		if bound == 5000 {
-			return
+	for nbr/nbase != 0 {
+		if nbr < 0 {
+			nbr = nbr * -1
 		}
 		str = string(base[nbr%nbase]) + str
 		nbr = nbr / nbase
