@@ -11,7 +11,7 @@ func Capitalize(s string) string {
 				continue
 			}
 		}
-		if len(r)-1 >= i+1 && !IsLower(string(c)) && !IsUpper(string(c)) && !IsNumeric(string(c)) && IsLower(string(r[i+1])) {
+		if len(r)-1 >= i+1 && (c <= 47 || (c >= 58 && c <= 64) || (c >= 123 && c <= 126)) && IsLower(string(r[i+1])) {
 			str += string(c)
 			str += ToUpper(string(r[i+1]))
 			i++
