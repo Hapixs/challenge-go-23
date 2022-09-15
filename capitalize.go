@@ -13,7 +13,7 @@ func Capitalize(s string) string {
 			}
 			continue
 		}
-		if len(r)-1 >= i+1 && (c <= 47 || (c >= 58 && c <= 64) || (c >= 123 && c <= 126) || (c >= 94 && c <= 96)) && IsAlpha(string(r[i+1])) {
+		if len(r)-1 >= i+1 && (c <= 47 || (c >= 58 && c <= 64) || (c >= 123 && c <= 126) || (c >= 91 && c <= 96)) && IsAlpha(string(r[i+1])) {
 			str += string(c)
 			if IsLower(string(r[i+1])) {
 				str += ToUpper(string(r[i+1]))
