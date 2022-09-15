@@ -4,7 +4,7 @@ func Index(s, find string) int {
 	rs := []rune(s)
 	fs := []rune(find)
 
-	if len(fs) > len(rs) {
+	if len(fs) > len(rs) || len(fs) == 0 || len(rs) == 0 {
 		return -1
 	}
 
