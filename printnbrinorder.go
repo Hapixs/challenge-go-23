@@ -15,6 +15,7 @@ func defineTab(n int) []int {
 			if n <= 9 {
 				tab = append(tab, i)
 				n = 0
+				continue
 			}
 			if (n-i)%10 == 0 {
 				tab = append(tab, i)
