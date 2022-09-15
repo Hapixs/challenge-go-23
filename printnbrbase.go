@@ -19,14 +19,18 @@ func PrintNbrBase(nbr int, base string) {
 	nbase := len([]rune(base))
 	str := ""
 	for nbr/nbase != 0 {
-		if nbr < 0 {
-			nbr = nbr * -1
+		index := nbr % nbase
+		if index < 0 {
+			index = index * -1
 		}
-		str = string(base[nbr%nbase]) + str
+		str = string(base[index]) + str
 		nbr = nbr / nbase
 	}
 	if negative {
 		z01.PrintRune('-')
+	}
+	if nbr < 0 {
+		nbr = nbr * -1
 	}
 	z01.PrintRune(rune(base[nbr]))
 	for _, s := range str {
