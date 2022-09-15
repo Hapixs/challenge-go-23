@@ -10,7 +10,7 @@ func PrintNbrInOrder(n int) {
 
 func defineTab(n int) []int {
 	tab := []int{}
-	for n >= 0 {
+	for n > 0 {
 		for i := 0; i < 9; i++ {
 			if n <= 9 {
 				tab = append(tab, i)
