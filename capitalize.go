@@ -7,9 +7,12 @@ func Capitalize(s string) string {
 		c := r[i]
 		if i == 0 {
 			if IsLower(string(c)) {
+				println(c)
 				str += ToUpper(string(c))
-				continue
+			} else {
+				str += string(c)
 			}
+			continue
 		}
 		if len(r)-1 >= i+1 && (c <= 47 || (c >= 58 && c <= 64) || (c >= 123 && c <= 126) || (c >= 94 && c <= 96)) {
 			str += string(c)
