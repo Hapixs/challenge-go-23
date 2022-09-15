@@ -5,7 +5,7 @@ func Capitalize(s string) string {
 	str := ""
 	for i := 0; i < len(r); i++ {
 		c := r[i]
-		if i == 0 && IsAlpha(string(r[i+1])) {
+		if i == 0 && IsAlpha(string(r[i])) {
 			if IsLower(string(c)) {
 				str += ToUpper(string(c))
 			} else {
