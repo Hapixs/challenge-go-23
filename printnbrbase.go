@@ -4,6 +4,11 @@ import "github.com/01-edu/z01"
 
 func PrintNbrBase(nbr int, base string) {
 	for x, c := range base {
+		if !IsPrintable(string(c)) {
+			z01.PrintRune('N')
+			z01.PrintRune('V')
+			return
+		}
 		for y, c1 := range base {
 			if c == c1 && x != y {
 				z01.PrintRune('N')
