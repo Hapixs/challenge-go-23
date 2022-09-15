@@ -18,6 +18,7 @@ func Capitalize(s string) string {
 			continue
 		} else if IsUpper(string(c)) {
 			str += ToLower(string(c))
+			continue
 		}
 		str += string(c)
 	}
