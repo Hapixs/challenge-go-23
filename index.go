@@ -14,6 +14,9 @@ func Index(s, find string) int {
 	for i, c := range s {
 		if c == fs[0] {
 			for y, fc := range find {
+				if i+y > len(rs) {
+					return -1
+				}
 				if rs[i+y] != fc {
 					break
 				}
