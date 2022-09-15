@@ -3,7 +3,8 @@ package piscine
 func Capitalize(s string) string {
 	r := []rune(s)
 	str := ""
-	for i, c := range r {
+	for i := 0; i < len(r); i++ {
+		c := r[i]
 		if i == 0 {
 			if IsLower(string(c)) {
 				str += ToUpper(string(r[i]))
@@ -11,7 +12,9 @@ func Capitalize(s string) string {
 			}
 		}
 		if len(r)-1 < i+1 && c < 47 && IsLower(string(r[i+1])) {
+			str += string(c)
 			str += ToUpper(string(r[i+1]))
+			i++
 			continue
 		}
 		str += string(c)
