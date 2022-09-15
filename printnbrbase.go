@@ -12,7 +12,7 @@ func PrintNbrBase(nbr int, base string) {
 			}
 		}
 	}
-
+	z01.PrintRune('e')
 	negative := false
 	if nbr < 0 {
 		negative = true
