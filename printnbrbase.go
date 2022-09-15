@@ -23,7 +23,7 @@ func PrintNbrBase(nbr int, base string) {
 	for nbr/nbase > 0 {
 		bound++
 		if bound == 5000 {
-			break
+			return
 		}
 		str = string(base[nbr%nbase]) + str
 		nbr = nbr / nbase
