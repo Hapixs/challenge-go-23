@@ -5,7 +5,7 @@ import "github.com/01-edu/z01"
 func PrintNbrBase(nbr int, base string) {
 	for x, c := range base {
 		for y, c1 := range base {
-			if (c == c1 && x != y) || !IsPrintable(string(c1)) {
+			if len([]rune(base)) <= 1 || (c == c1 && x != y) || !IsPrintable(string(c1)) {
 				z01.PrintRune('N')
 				z01.PrintRune('V')
 				return
