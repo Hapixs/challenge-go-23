@@ -20,7 +20,7 @@ func PrintNbrBase(nbr int, base string) {
 	}
 	nbase := len([]rune(base))
 	str := ""
-	for nbr/nbase > 0 {
+	for nbr/nbase >= 1 {
 		str = string(base[nbr%nbase]) + str
 		nbr = nbr / nbase
 	}
