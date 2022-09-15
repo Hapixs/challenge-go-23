@@ -2,7 +2,7 @@ package piscine
 
 import "github.com/01-edu/z01"
 
-func Base(nbr int, base string) {
+func PrintNbrBase(nbr int, base string) {
 	negative := false
 	if nbr < 0 {
 		negative = true
