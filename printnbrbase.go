@@ -3,9 +3,9 @@ package piscine
 import "github.com/01-edu/z01"
 
 func PrintNbrBase(nbr int, base string) {
-	for _, c := range base {
-		for _, c1 := range base {
-			if c == c1 {
+	for x, c := range base {
+		for y, c1 := range base {
+			if c == c1 && x != y {
 				z01.PrintRune('N')
 				z01.PrintRune('V')
 				return
