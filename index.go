@@ -7,13 +7,14 @@ func Index(s, find string) int {
 	if len(fs) > len(rs) || len(rs) == 0 {
 		return -1
 	}
+
 	if len(fs) == 0 {
 		return 0
 	}
 
-	for i, c := range s {
+	for i, c := range rs {
 		if c == fs[0] {
-			for y, fc := range find {
+			for y, fc := range fs {
 				if i+y > len(rs) {
 					return -1
 				}

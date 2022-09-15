@@ -1,6 +1,8 @@
 package piscine
 
-import "github.com/01-edu/z01"
+import (
+	"github.com/01-edu/z01"
+)
 
 func PrintNbrBase(nbr int, base string) {
 	for x, c := range base {
@@ -12,28 +14,21 @@ func PrintNbrBase(nbr int, base string) {
 			}
 		}
 	}
-	negative := false
 	if nbr < 0 {
-		negative = true
-	}
-	nbase := len([]rune(base))
-	str := ""
-	for nbr/nbase != 0 {
-		index := nbr % nbase
-		if index < 0 {
-			index = index * -1
-		}
-		str = string(base[index]) + str
-		nbr = nbr / nbase
-	}
-	if negative {
 		z01.PrintRune('-')
 	}
-	if nbr < 0 {
-		nbr = nbr * -1
+	recPrintBase(nbr, len([]rune(base)), base)
+}
+
+func recPrintBase(nbr int, nbase int, base string) {
+	if nbr/nbase == 0 {
+		z01.PrintRune(rune(base[printBaseAbs(nbr)]))
+	} else {
+		recPrintBase(nbr/nbase, nbase, base)
+		z01.PrintRune(rune(base[printBaseAbs(nbr%nbase)]))
 	}
-	z01.PrintRune(rune(base[nbr]))
-	for _, s := range str {
-		z01.PrintRune(s)
-	}
+}
+
+func printBaseAbs(f int) int {
+	return map[bool]int{true: f * -1, false: f}[f < 0]
 }
