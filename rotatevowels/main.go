@@ -23,7 +23,9 @@ func main() {
 	for _, c := range r {
 		z01.PrintRune(c)
 	}
-	z01.PrintRune(' ')
+	if len(r) > 0 {
+		z01.PrintRune(' ')
+	}
 	z01.PrintRune('\n')
 }
 
