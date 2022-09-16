@@ -1,9 +1,5 @@
 package piscine
 
 func NRune(s string, n int) rune {
-	r := []rune(s)
-	if len(r) < n || n <= 0 {
-		return '\x00'
-	}
-	return r[n-1]
+	return map[bool]rune{true: []rune(s)[n], false: '\x00'}[len([]rune(s)) < n || n <= 0]
 }
