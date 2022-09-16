@@ -14,7 +14,7 @@ func main() {
 	isUpper := args[0] == "--upper"
 
 	for _, c := range args {
-		if c[1] == '-' {
+		if c[0] == '-' {
 			continue
 		}
 		if !IsNumeric(c) {
