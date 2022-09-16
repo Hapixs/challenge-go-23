@@ -1,8 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"os"
+
+	"github.com/01-edu/z01"
 )
 
 func main() {
@@ -19,7 +20,10 @@ func main() {
 			}
 		}
 	}
-	fmt.Println(string(r))
+	for _, c := range r {
+		z01.PrintRune(c)
+	}
+	z01.PrintRune('\n')
 }
 
 func Join(s []string, sep string) string {
