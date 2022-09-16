@@ -12,7 +12,7 @@ func main() {
 		if isVowel(a) {
 			for y, b := range r[i:] {
 				if isVowel(b) {
-					r[i], r[y] = r[y], r[i]
+					r[i], r[i+y] = r[i+y], r[i]
 				}
 			}
 		}
@@ -39,9 +39,9 @@ func isVowel(r rune) bool {
 }
 
 func StrIndex(s, find string) int {
-	SizeS := StrLen(s) + 1
+	SizeS := StrLen(s)
 	SizeF := StrLen(find)
-	for i := 0; i < SizeS-SizeF; i++ {
+	for i := 0; i <= SizeS-SizeF; i++ {
 		if s[i:i+SizeF] == find {
 			return i
 		}
