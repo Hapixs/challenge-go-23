@@ -53,13 +53,14 @@ func printHelp() {
 }
 
 func SortRuneTable(t []rune) []rune {
-	table := []rune(t)
+	table := []rune{}
+	copy(table, t)
 	for i := 0; i < len(table); i++ {
 		for j := i; j > 0 && table[j-1] > table[j]; j-- {
 			table[j], table[j-1] = table[j-1], table[j]
 		}
 	}
-	return t
+	return table
 }
 
 func StrIndex(s, find string) int {
