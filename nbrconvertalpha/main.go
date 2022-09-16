@@ -21,7 +21,7 @@ func main() {
 		if isUpper {
 			z01.PrintRune(rune(Atoi(c)) + 64)
 		} else {
-			z01.PrintRune(rune(Atoi(c)) + 98)
+			z01.PrintRune(rune(Atoi(c)) + 96)
 		}
 	}
 	z01.PrintRune('\n')
