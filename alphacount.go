@@ -1,11 +1,5 @@
 package piscine
 
 func AlphaCount(s string) int {
-	i := 0
-	for _, c := range s {
-		if (c >= 65 && c <= 90) || (c >= 97 && c <= 122) {
-			i += 1
-		}
-	}
-	return i
+	return map[bool]int{true: map[bool]int{true: 1 + AlphaCount(string(s[1:])), false: 0}[IsAlpha(s)], false: 0}[StrLen(s) > 0]
 }
