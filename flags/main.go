@@ -39,7 +39,6 @@ func main() {
 	}
 
 	if order {
-		println("a")
 		SortRuneTable(toOrder)
 	}
 	for _, s := range toOrder {
