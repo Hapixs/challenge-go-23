@@ -17,8 +17,8 @@ func main() {
 
 	toOrder := []rune{}
 	order := false
-
-	for index, s := range args {
+	for index := 0; index < len(args); index++ {
+		s := args[index]
 		if !order {
 			order = s == "-o" || s == "--order"
 		}
@@ -32,6 +32,7 @@ func main() {
 			}
 			toInsert = args[index+1] + toInsert
 			toOrder = append(toOrder, []rune(toInsert)...)
+			index++
 			continue
 		} else if s != "-o" && s != "--order" {
 			toOrder = append(toOrder, []rune(s)...)
