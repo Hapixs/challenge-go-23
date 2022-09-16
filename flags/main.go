@@ -21,7 +21,7 @@ func main() {
 
 	for _, s := range args {
 		order = order || s == "-o" || s == "--order"
-		if StrIndex(s, "--insert=")+StrIndex(s, "-i=") > 0 {
+		if StrIndex(s, "--insert=")+StrIndex(s, "-i=")+2 > 0 {
 			toInsert = append(toInsert, []rune(s[StrIndex(s, "=")+1:])...)
 			continue
 		}
@@ -31,7 +31,6 @@ func main() {
 	}
 
 	final = append(final, []rune(toInsert)...)
-
 	for _, s := range map[bool][]rune{true: SortRuneTable(final), false: final}[order] {
 		if s != ' ' || order {
 			z01.PrintRune(s)
