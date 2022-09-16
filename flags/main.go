@@ -34,11 +34,12 @@ func main() {
 				toInsert = args[index+2] + toInsert
 				toOrder = append(toOrder, []rune(toInsert)...)
 				args = append(args[:index+1], args[index+2:]...)
-				index++
+				index += 2
 				continue
 			}
 			toInsert = args[index+1] + toInsert
 			toOrder = append(toOrder, []rune(toInsert)...)
+			index++
 			continue
 		}
 		if s != "-o" && s != "--order" {
