@@ -51,7 +51,7 @@ func main() {
 		SortRuneTable(toOrder)
 	}
 	for _, s := range toOrder {
-		if s != ' ' {
+		if s != ' ' || order {
 			z01.PrintRune(s)
 		}
 	}
