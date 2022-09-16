@@ -43,7 +43,9 @@ func main() {
 		SortRuneTable(toOrder)
 	}
 	for _, s := range toOrder {
-		z01.PrintRune(s)
+		if s != ' ' {
+			z01.PrintRune(s)
+		}
 	}
 	z01.PrintRune('\n')
 }
