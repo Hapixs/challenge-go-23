@@ -29,9 +29,16 @@ func main() {
 			for _, c := range s[vIndex+1:] {
 				toInsert += string(c)
 			}
+			if args[index+1] == "--order" || args[index+1] == "-o" {
+				order = true
+				toInsert = args[index+2] + toInsert
+				toOrder = append(toOrder, []rune(toInsert)...)
+				args = append(args[:index+1], args[index+2:]...)
+				index++
+				continue
+			}
 			toInsert = args[index+1] + toInsert
 			toOrder = append(toOrder, []rune(toInsert)...)
-			index++
 			continue
 		}
 		if s != "-o" && s != "--order" {
