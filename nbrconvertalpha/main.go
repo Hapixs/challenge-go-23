@@ -13,7 +13,10 @@ func main() {
 	}
 	isUpper := args[0] == "--upper"
 
-	for _, c := range args[1:] {
+	for _, c := range args {
+		if c[1] == '-' {
+			continue
+		}
 		if !IsNumeric(c) {
 			z01.PrintRune(' ')
 			continue
