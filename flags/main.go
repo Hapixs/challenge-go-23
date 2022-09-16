@@ -22,7 +22,6 @@ func main() {
 		if !order {
 			order = s == "-o" || s == "--order"
 		}
-
 		i := StrIndex(s, "--insert=") + StrIndex(s, "-i=")
 		if i+2 > 0 {
 			toInsert := ""
@@ -37,7 +36,6 @@ func main() {
 		}
 		if s != "-o" && s != "--order" {
 			toOrder = append(toOrder, []rune(s)...)
-			continue
 		}
 	}
 
