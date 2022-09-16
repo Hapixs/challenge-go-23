@@ -8,11 +8,9 @@ import (
 
 func main() {
 	r := []rune(Join(os.Args[1:], " "))
-	for i := 0; i < len(r); i++ {
-		a := r[i]
+	for i, a := range r {
 		if isVowel(a) {
-			for y := i + 1; y < len(r); y++ {
-				b := r[y]
+			for y, b := range r[i:] {
 				if isVowel(b) {
 					r[i], r[y] = r[y], r[i]
 				}
