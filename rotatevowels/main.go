@@ -23,6 +23,7 @@ func main() {
 	for _, c := range r {
 		z01.PrintRune(c)
 	}
+	z01.PrintRune(' ')
 	z01.PrintRune('\n')
 }
 
