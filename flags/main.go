@@ -16,6 +16,7 @@ func main() {
 	}
 
 	toOrder := []rune{}
+	toInsert := ""
 	order := false
 	for index := 0; index < len(args); index++ {
 		s := args[index]
@@ -24,29 +25,15 @@ func main() {
 		}
 		i := StrIndex(s, "--insert=") + StrIndex(s, "-i=")
 		if i+2 > 0 {
-			toInsert := ""
 			vIndex := StrIndex(s, "=")
 			for _, c := range s[vIndex+1:] {
 				toInsert += string(c)
 			}
-			if args[index+1] == "--order" || args[index+1] == "-o" {
-				order = true
-				toInsert = args[index+2] + toInsert
-				toOrder = append(toOrder, []rune(toInsert)...)
-				args = append(args[:index+1], args[index+2:]...)
-				index += 2
-				continue
-			}
-			toInsert = args[index+1] + toInsert
-			toOrder = append(toOrder, []rune(toInsert)...)
-			index++
-			continue
-		}
-		if s != "-o" && s != "--order" {
+		} else if s != "-o" && s != "--order" {
 			toOrder = append(toOrder, []rune(s)...)
 		}
 	}
-
+	toOrder = append(toOrder, []rune(toInsert)...)
 	if order {
 		SortRuneTable(toOrder)
 	}

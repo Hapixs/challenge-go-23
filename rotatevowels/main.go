@@ -7,8 +7,7 @@ import (
 )
 
 func main() {
-	str := Join(os.Args[1:], " ")
-	r := []rune(str)
+	r := []rune(Join(os.Args[1:], " "))
 	for i := 0; i < len(r); i++ {
 		a := r[i]
 		if isVowel(a) {
