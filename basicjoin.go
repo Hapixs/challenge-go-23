@@ -1,9 +1,8 @@
 package piscine
 
 func BasicJoin(strings []string) string {
-	str := ""
-	for _, s := range strings {
-		str += s
+	if len(strings) < 1 {
+		return ""
 	}
-	return str
+	return strings[0] + map[bool]string{true: BasicJoin(strings[1:]), false: ""}[len(strings) > 1]
 }
