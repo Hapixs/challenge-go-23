@@ -23,8 +23,8 @@ func main() {
 		} else {
 			z01.PrintRune(rune(Atoi(c)) + 98)
 		}
-
 	}
+	z01.PrintRune('\n')
 }
 
 func IsNumeric(s string) bool {
