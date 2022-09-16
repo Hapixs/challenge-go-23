@@ -31,7 +31,10 @@ func main() {
 	}
 
 	final = append(final, []rune(toInsert)...)
-	for _, s := range map[bool][]rune{true: SortRuneTable(final), false: final}[order] {
+	if order {
+		SortRuneTable(final)
+	}
+	for _, s := range final {
 		if s != ' ' || order {
 			z01.PrintRune(s)
 		}
@@ -48,15 +51,12 @@ func printHelp() {
 	fmt.Println("	 This flag will behave like a boolean, if it is called it will order the argument.")
 }
 
-func SortRuneTable(t []rune) []rune {
-	table := []rune{}
-	copy(table, t)
+func SortRuneTable(table []rune) {
 	for i := 0; i < len(table); i++ {
 		for j := i; j > 0 && table[j-1] > table[j]; j-- {
 			table[j], table[j-1] = table[j-1], table[j]
 		}
 	}
-	return table
 }
 
 func StrIndex(s, find string) int {
