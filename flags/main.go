@@ -52,13 +52,14 @@ func printHelp() {
 	fmt.Println("	 This flag will behave like a boolean, if it is called it will order the argument.")
 }
 
-func SortRuneTable(table []rune) []rune {
+func SortRuneTable(t []rune) []rune {
+	table := []rune(t)
 	for i := 0; i < len(table); i++ {
 		for j := i; j > 0 && table[j-1] > table[j]; j-- {
 			table[j], table[j-1] = table[j-1], table[j]
 		}
 	}
-	return table
+	return t
 }
 
 func StrIndex(s, find string) int {
