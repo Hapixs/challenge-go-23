@@ -12,7 +12,7 @@ func main() {
 	for i := 0; i < len(r); i++ {
 		a := r[i]
 		if isVowel(a) {
-			for y := i; y < len(r); y++ {
+			for y := i + 1; y < len(r); y++ {
 				b := r[y]
 				if isVowel(b) {
 					r[i], r[y] = r[y], r[i]
@@ -37,12 +37,12 @@ func Join(s []string, sep string) string {
 }
 
 func isVowel(r rune) bool {
-	str := "aeiouAEIOU"
+	str := "aeiouAEIUO"
 	return StrIndex(str, string(r)) >= 0
 }
 
 func StrIndex(s, find string) int {
-	SizeS := StrLen(s)
+	SizeS := StrLen(s) + 1
 	SizeF := StrLen(find)
 	for i := 0; i < SizeS-SizeF; i++ {
 		if s[i:i+SizeF] == find {
