@@ -34,8 +34,10 @@ func main() {
 			toOrder = append(toOrder, []rune(toInsert)...)
 			index++
 			continue
-		} else if s != "-o" && s != "--order" {
+		}
+		if s != "-o" && s != "--order" {
 			toOrder = append(toOrder, []rune(s)...)
+			continue
 		}
 	}
 
