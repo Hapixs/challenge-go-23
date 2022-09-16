@@ -15,7 +15,14 @@ func main() {
 		return
 	}
 
+	toOrder := []rune{}
+	order := false
+
 	for index, s := range args {
+		if !order {
+			order = s == "-o" || s == "--order"
+		}
+
 		i := StrIndex(s, "--insert=") + StrIndex(s, "-i=")
 		if i+2 > 0 {
 			toInsert := ""
@@ -24,19 +31,19 @@ func main() {
 				toInsert += string(c)
 			}
 			toInsert = args[index+1] + toInsert
-			fmt.Print(toInsert)
+			toOrder = append(toOrder, []rune(toInsert)...)
 			continue
+		} else if s != "-o" && s != "--order" {
+			toOrder = append(toOrder, []rune(s)...)
 		}
-		if s == "-o" || s == "--order" {
-			toOrder := []rune{}
-			for _, c := range args[index+1] {
-				toOrder = append(toOrder, c)
-			}
-			SortRuneTable(toOrder)
-			for _, c := range toOrder {
-				z01.PrintRune(c)
-			}
-		}
+	}
+
+	if order {
+		println("a")
+		SortRuneTable(toOrder)
+	}
+	for _, s := range toOrder {
+		z01.PrintRune(s)
 	}
 	z01.PrintRune('\n')
 }
