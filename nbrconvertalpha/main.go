@@ -21,6 +21,12 @@ func main() {
 			z01.PrintRune(' ')
 			continue
 		}
+		val := Atoi(c)
+		if val > 26 {
+			z01.PrintRune(' ')
+			continue
+		}
+
 		if isUpper {
 			z01.PrintRune(rune(Atoi(c)) + 64)
 		} else {
