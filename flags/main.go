@@ -15,32 +15,30 @@ func main() {
 		return
 	}
 
-	toOrder := []rune{}
-	toInsert := ""
+	final := []rune{}
+	toInsert := []rune{}
 	order := false
-	for index := 0; index < len(args); index++ {
-		s := args[index]
-		if !order {
-			order = s == "-o" || s == "--order"
+
+	for _, s := range args {
+		order = order || s == "-o" || s == "--order"
+		if StrIndex(s, "--insert=")+StrIndex(s, "-i=") > 0 {
+			toInsert = append(toInsert, []rune(s[StrIndex(s, "=")+1:])...)
+			continue
 		}
-		i := StrIndex(s, "--insert=") + StrIndex(s, "-i=")
-		if i+2 > 0 {
-			vIndex := StrIndex(s, "=")
-			for _, c := range s[vIndex+1:] {
-				toInsert += string(c)
-			}
-		} else if s != "-o" && s != "--order" {
-			toOrder = append(toOrder, []rune(s)...)
+		if s != "-o" && s != "--order" {
+			final = append(final, []rune(s)...)
 		}
 	}
-	toOrder = append(toOrder, []rune(toInsert)...)
-	if order {
-		SortRuneTable(toOrder)
-	}
-	for _, s := range toOrder {
+
+	final = append(final, []rune(toInsert)...)
+
+	for _, s := range map[bool][]rune{true: SortRuneTable(final), false: final}[order] {
 		if s != ' ' || order {
 			z01.PrintRune(s)
 		}
+	}
+	if len(final) > 0 {
+		z01.PrintRune(' ')
 	}
 	z01.PrintRune('\n')
 }
@@ -54,12 +52,13 @@ func printHelp() {
 	fmt.Println("	 This flag will behave like a boolean, if it is called it will order the argument.")
 }
 
-func SortRuneTable(table []rune) {
-	for i := 0; i < len(table); i++ { // Boucle qui passe sur chaque valeur du tableau
-		for j := i; j > 0 && table[j-1] > table[j]; j-- { // Boucle qui repasse sur chaque valeur du tableau dans le sens inverse de i, tant que la valeur précedente de la liste (table[j-1]) est inferieur à celle actuel (table[j])
-			table[j], table[j-1] = table[j-1], table[j] // Echange des deux valeur si table[j-1] > table[j]
+func SortRuneTable(table []rune) []rune {
+	for i := 0; i < len(table); i++ {
+		for j := i; j > 0 && table[j-1] > table[j]; j-- {
+			table[j], table[j-1] = table[j-1], table[j]
 		}
 	}
+	return table
 }
 
 func StrIndex(s, find string) int {
@@ -68,19 +67,6 @@ func StrIndex(s, find string) int {
 	for i := 0; i < SizeS-SizeF; i++ {
 		if s[i:i+SizeF] == find {
 			return i
-		}
-	}
-	return -1
-}
-
-func Index(s []string, find string) int {
-	SizeS := len(s)
-	SizeF := StrLen(find)
-	for index, str := range s {
-		for i := 0; i < SizeS-SizeF; i++ {
-			if str[i:i+SizeF] == find {
-				return index
-			}
 		}
 	}
 	return -1
