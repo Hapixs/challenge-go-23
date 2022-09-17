@@ -23,6 +23,9 @@ func defineTab(n int) []int {
 			if (n-i)%10 == 0 {
 				tab = append(tab, i)
 				n = (n - i) / 10
+				if i >= 6 {
+					break
+				}
 			}
 		}
 	}

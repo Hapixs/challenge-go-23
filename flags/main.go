@@ -9,27 +9,21 @@ import (
 
 func main() {
 	args := os.Args[1:]
-
-	if len(args) < 1 || args[0] == "--help" || args[0] == "-h" {
+	if len(args) < 1 || contains(args[0], []string{"--help", "-h"}) {
 		printHelp()
 		return
 	}
-
 	final := []rune{}
 	toInsert := []rune{}
 	order := false
-
 	for _, s := range args {
-		order = order || s == "-o" || s == "--order"
-		if StrIndex(s, "--insert=")+StrIndex(s, "-i=")+2 > 0 {
+		order = order || contains(s, []string{"-o", "--order"})
+		if contains(s, []string{"--insert=", "-i="}) {
 			toInsert = append(toInsert, []rune(s[StrIndex(s, "=")+1:])...)
-			continue
-		}
-		if s != "-o" && s != "--order" {
+		} else if s != "-o" && s != "--order" {
 			final = append(final, []rune(s)...)
 		}
 	}
-
 	final = append(final, []rune(toInsert)...)
 	if order {
 		SortRuneTable(final)
@@ -59,17 +53,22 @@ func SortRuneTable(table []rune) {
 	}
 }
 
+func contains(reference string, find []string) bool {
+	for _, c := range find {
+		if StrIndex(reference, c) >= 0 {
+			return true
+		}
+	}
+	return false
+}
+
 func StrIndex(s, find string) int {
-	SizeS := StrLen(s)
-	SizeF := StrLen(find)
-	for i := 0; i < SizeS-SizeF; i++ {
+	SizeS := len([]rune(s))
+	SizeF := len([]rune(find))
+	for i := 0; i <= SizeS-SizeF; i++ {
 		if s[i:i+SizeF] == find {
 			return i
 		}
 	}
 	return -1
-}
-
-func StrLen(s string) int {
-	return len([]rune(s))
 }
