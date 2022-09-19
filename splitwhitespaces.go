@@ -2,7 +2,7 @@ package piscine
 
 func SplitWhiteSpaces(str string) []string {
 	for i, s := range str {
-		if s == ' ' || s == '\n' || s == '\t' {
+		if s == ' ' || s == '\n' || s == '\t' && len(str) > 0 {
 			if len(str[:i]) > 0 {
 				return append([]string{str[:i]}, SplitWhiteSpaces(str[i+1:])...)
 			} else {
@@ -10,9 +10,12 @@ func SplitWhiteSpaces(str string) []string {
 			}
 		}
 	}
-	return []string{str} /*
-
-		[]string{"MIX", "V,c6)^$os", "5-7o|im29BrG?", "CsNe6U<^1+w1", " 2]I5ch>#g,V1{", "/46UIg&RxuIe", " \\oOM)~8$Vcw]Z", "K0l6y\\JFTpP&V", "SIZ.-&0@}%i(\""} instead of
-		[]string{"MIX", "V,c6)^$os", "5-7o|im29BrG?", "CsNe6U<^1+w1", "2]I5ch>#g,V1{", "/46UIg&RxuIe", "\\oOM)~8$Vcw]Z", "K0l6y\\JFTpP&V", "SIZ.-&0@}%i(\""}
+	if len(str) > 0 {
+		return []string{str}
+	}
+	return []string{}
+	/*
+		[]string{",tN&3E>i.r#.c", "U?s)Uu>6xD|&m", "@gtP~}X0ZNPRQ", "}#{3kA4#lPNw+", "w|>Ou^RiLZw]?", "/gJc.U'0(RfP=", "*eywKok@QE8Nm", "2?n.Zz?Q+|'N", ""} instead of
+		[]string{",tN&3E>i.r#.c", "U?s)Uu>6xD|&m", "@gtP~}X0ZNPRQ", "}#{3kA4#lPNw+", "w|>Ou^RiLZw]?", "/gJc.U'0(RfP=", "*eywKok@QE8Nm", "2?n.Zz?Q+|'N"}
 	*/
 }
