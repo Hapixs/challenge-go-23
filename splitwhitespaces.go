@@ -14,8 +14,4 @@ func SplitWhiteSpaces(str string) []string {
 		return []string{str}
 	}
 	return []string{}
-	/*
-		[]string{",tN&3E>i.r#.c", "U?s)Uu>6xD|&m", "@gtP~}X0ZNPRQ", "}#{3kA4#lPNw+", "w|>Ou^RiLZw]?", "/gJc.U'0(RfP=", "*eywKok@QE8Nm", "2?n.Zz?Q+|'N", ""} instead of
-		[]string{",tN&3E>i.r#.c", "U?s)Uu>6xD|&m", "@gtP~}X0ZNPRQ", "}#{3kA4#lPNw+", "w|>Ou^RiLZw]?", "/gJc.U'0(RfP=", "*eywKok@QE8Nm", "2?n.Zz?Q+|'N"}
-	*/
 }
