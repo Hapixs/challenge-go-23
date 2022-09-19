@@ -10,8 +10,8 @@ func ToBase(nbr int, base string) string {
 }
 
 func ToBaseRec(nbr int, baseTo []rune) string {
-	if nbr < len(baseTo) {
+	if nbr < len(baseTo)-1 {
 		return string(baseTo[nbr])
 	}
-	return ToBaseRec(nbr/len([]rune(baseTo)), baseTo)
+	return ToBaseRec(nbr/(len([]rune(baseTo))-1), baseTo)
 }
