@@ -8,5 +8,5 @@ func Split(str, sep string) []string {
 		}
 		return append([]string{str[:i]}, Split(str[i+2:], sep)...)
 	}
-	return []string{}
+	return []string{str}
 }
