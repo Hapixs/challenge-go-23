@@ -1,9 +1,8 @@
 package main
 
 import (
+	"fmt"
 	"os"
-
-	"github.com/01-edu/z01"
 )
 
 func main() {
@@ -42,10 +41,7 @@ func main() {
 }
 
 func Display(i int) {
-	for _, c := range Itoa(i) {
-		z01.PrintRune(c)
-	}
-	z01.PrintRune('\n')
+	fmt.Println(Itoa(i))
 }
 
 func IsNumeric(s string) bool {
