@@ -20,6 +20,10 @@ func main() {
 	a1 = Atoi(args[0])
 	a2 = Atoi(args[2])
 
+	if a1 >= 9223372036800000000 || a2 >= 9223372036800000000 {
+		return
+	}
+
 	switch args[1] {
 	case "*":
 		Display(a1 * a2)
