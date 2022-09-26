@@ -34,7 +34,6 @@ func main() {
 			os.Stdout.WriteString(string(ct[len([]rune(ct))-i]))
 		}
 	}
-	os.Stdout.WriteString("\n")
 	if osExit {
 		os.Exit(1)
 	}
