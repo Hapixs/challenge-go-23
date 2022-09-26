@@ -50,7 +50,7 @@ func Display(i int) {
 	if str == "-" || str == "" || str == " " {
 		return
 	}
-	os.Stdout.WriteString(Itoa(i) + "\n")
+	os.Stdout.WriteString(str + "\n")
 }
 
 func IsNumeric(s string) bool {
