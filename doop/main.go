@@ -18,7 +18,7 @@ func main() {
 	}
 
 	a1 = Atoi(args[0])
-	a2 = Atoi(args[1])
+	a2 = Atoi(args[2])
 
 	switch args[1] {
 	case "*":
