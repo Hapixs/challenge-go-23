@@ -29,12 +29,12 @@ func Itoa(i int) string {
 	str := ""
 	for i > 0 {
 		if i <= 9 && i > 0 {
-			return str + string(rune(i+48))
+			return string(rune(i+48)) + str
 		}
 		for y := 0; y <= 9; y++ {
 			if (i-y)%10 == 0 {
 				i = (i - y) / 10
-				str += string(rune(y + 48))
+				str = string(rune(y+48)) + str
 			}
 		}
 	}
