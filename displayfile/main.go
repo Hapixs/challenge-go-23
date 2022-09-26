@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 )
 
@@ -19,7 +18,8 @@ func main() {
 	}
 	content, err := ioutil.ReadFile("thermopylae.txt")
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
+		return
 	}
 	fmt.Println(string(content))
 }
