@@ -19,7 +19,7 @@ func main() {
 	for _, a := range args[2:] {
 		content, err := os.ReadFile(a)
 		if err != nil {
-			os.Stdout.WriteString(err.Error() + "\n")
+			os.Stdout.WriteString(err.Error() + "\n\n")
 			continue
 		}
 		ct := string(content)
