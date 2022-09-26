@@ -26,13 +26,13 @@ func main() {
 		os.Stdout.WriteString("\n==> " + a + " <==\n")
 		if len([]rune(ct)) < c {
 			os.Stdout.WriteString(ct)
-			continue
+			os.Exit(1)
+			break
 		}
 		for i := c; i > 0; i-- {
 			os.Stdout.WriteString(string(ct[len([]rune(ct))-i]))
 		}
 	}
-	os.Exit(1)
 }
 
 func Atoi(s string) int {
