@@ -1,7 +1,6 @@
 package main
 
 import (
-	"io/ioutil"
 	"os"
 )
 
@@ -18,14 +17,16 @@ func main() {
 	c := Atoi(args[1])
 
 	for _, a := range args[2:] {
-		content, err := ioutil.ReadFile(a)
+		content, err := os.ReadFile(a)
 		if err != nil {
 			os.Stdout.WriteString(err.Error())
 			return
 		}
 		ct := string(content)
 		os.Stdout.WriteString("==> " + a + " <==\n")
-		os.Stdout.WriteString(ct[len([]rune(ct))-c:])
+		for i := c; i > 0; i-- {
+			os.Stdout.WriteString(string(ct[len(ct)-i]))
+		}
 	}
 }
 
