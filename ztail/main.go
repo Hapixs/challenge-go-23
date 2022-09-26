@@ -31,6 +31,7 @@ func main() {
 			os.Stdout.WriteString(string(ct[len([]rune(ct))-i]))
 		}
 	}
+	os.Exit(1)
 }
 
 func Atoi(s string) int {
