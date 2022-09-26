@@ -11,7 +11,7 @@ func main() {
 	args := os.Args[1:]
 
 	if len(args) == 0 {
-		bt := make([]byte, 5000)
+		bt := make([]byte, 20)
 		os.Stdin.Read(bt)
 		if string(bt) == "\n" || string(bt) == " " || string(bt) == "" {
 			return
