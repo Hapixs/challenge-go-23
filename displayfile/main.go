@@ -17,12 +17,9 @@ func main() {
 		fmt.Println("Too many arguments")
 		return
 	}
-
 	content, err := ioutil.ReadFile("thermopylae.txt")
-
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	fmt.Println(string(content))
 }
