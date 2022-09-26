@@ -39,7 +39,6 @@ func main() {
 		Display(a1 - a2)
 		break
 	}
-
 }
 
 func Display(i int) {
