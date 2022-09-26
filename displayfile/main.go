@@ -8,18 +8,13 @@ import (
 
 func main() {
 	args := os.Args[1:]
-
-	if len(args) == 0 {
+	switch len(args) {
+	case 0:
 		fmt.Println("File name missing")
-		return
-	} else if len(args) > 1 {
+	case 1:
+		content, err := ioutil.ReadFile(args[0])
+		fmt.Println(map[bool]string{true: string(content), false: err.Error()})
+	default:
 		fmt.Println("Too many arguments")
-		return
 	}
-	content, err := ioutil.ReadFile(args[0])
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	fmt.Print(string(content))
 }
