@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
 	"os"
 
@@ -12,9 +11,9 @@ func main() {
 	args := os.Args[1:]
 
 	if len(args) == 0 {
-		content := ""
-		fmt.Scanf("%s", content)
-		for _, c := range string(content) {
+		bt := []byte{}
+		os.Stdin.Read(bt)
+		for _, c := range string(bt) {
 			z01.PrintRune(c)
 		}
 		return
