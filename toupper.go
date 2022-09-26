@@ -1,13 +1,9 @@
 package piscine
 
 func ToUpper(s string) string {
-	str := ""
-	for _, c := range s {
-		if c >= 97 && c <= 122 {
-			str += string(c - 32)
-		} else {
-			str += string(c)
-		}
+	if len(s) > 0 {
+		r := rune(s[0])
+		return string(rune(int(r)-map[bool]int{true: 32, false: 0}[r >= 97 && r <= 122])) + ToUpper(s[1:])
 	}
-	return str
+	return s
 }

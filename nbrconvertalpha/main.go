@@ -12,6 +12,7 @@ func main() {
 		return
 	}
 	isUpper := args[0] == "--upper"
+	args = args[1:]
 	for _, c := range args {
 		val := Atoi(c)
 		if val == -1 || val > 26 {

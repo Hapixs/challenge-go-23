@@ -1,12 +1,11 @@
 package piscine
 
 func Split(str, sep string) []string {
-	for len(str) > 0 {
+	if len(str) > 0 {
 		i := Index(str, sep)
-		if i < 0 {
-			return []string{str}
+		if i >= 0 {
+			return append([]string{str[:i]}, Split(str[i+len([]rune(sep)):], sep)...)
 		}
-		return append([]string{str[:i]}, Split(str[i+len([]rune(sep)):], sep)...)
 	}
 	return []string{str}
 }
