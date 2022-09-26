@@ -16,7 +16,7 @@ func main() {
 		if err != nil {
 			fmt.Println(err.Error())
 		} else {
-			fmt.Println(string(content))
+			fmt.Print(string(content))
 		}
 	default:
 		fmt.Println("Too many arguments")
