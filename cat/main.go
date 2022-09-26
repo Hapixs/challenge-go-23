@@ -13,7 +13,7 @@ func main() {
 	if len(args) == 0 {
 		bt := make([]byte, 5000)
 		os.Stdin.Read(bt)
-		if string(bt) == "\n" {
+		if string(bt) == "\n" || string(bt) == " " || string(bt) == "" {
 			return
 		}
 		os.Stdout.WriteString(string(bt))
