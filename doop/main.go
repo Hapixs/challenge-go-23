@@ -84,10 +84,8 @@ func Itoa(i int) string {
 	str := ""
 	for i > 0 {
 		if i <= 9 && i > 0 {
-			if negative {
-				str = "-" + str
-			}
-			return string(rune(i+48)) + str
+			str = string(rune(i+48)) + str
+			break
 		}
 		for y := 0; y <= 9; y++ {
 			if (i-y)%10 == 0 {
