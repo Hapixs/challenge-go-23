@@ -74,12 +74,14 @@ func Itoa(i int) string {
 		i *= -1
 		negative = true
 	}
-	for y := 0; y <= 9; y++ {
-		if (i-y)%10 == 0 {
-			i = (i - y) / 10
-			str = string(rune(y+48)) + str
-			if i > 0 {
-				return Itoa(i) + str
+	for i > 0 {
+		if i <= 9 && i > 0 {
+			return string(rune(i+48)) + str
+		}
+		for y := 0; y <= 9; y++ {
+			if (i-y)%10 == 0 {
+				i = (i - y) / 10
+				str = string(rune(y+48)) + str
 			}
 		}
 	}
