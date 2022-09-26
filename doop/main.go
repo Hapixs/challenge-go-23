@@ -43,7 +43,7 @@ func main() {
 }
 
 func Display(i int) {
-	if i >= 9223372036854775806 {
+	if i <= 9223372036854775806 {
 		return
 	}
 	str := Itoa(i)
