@@ -20,7 +20,6 @@ func main() {
 		content, err := os.ReadFile(a)
 		if err != nil {
 			os.Stdout.WriteString(err.Error() + "\n")
-			return
 		}
 		ct := string(content)
 		os.Stdout.WriteString("==> " + a + " <==\n")
