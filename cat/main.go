@@ -11,7 +11,7 @@ func main() {
 	args := os.Args[1:]
 
 	if len(args) == 0 {
-		bt := []byte{}
+		bt := make([]byte, 5000)
 		os.Stdin.Read(bt)
 		for _, c := range string(bt) {
 			z01.PrintRune(c)
