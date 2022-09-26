@@ -66,7 +66,6 @@ func Atoi(s string) int {
 	//     dictionaire [  <clé> : <valeur>, ...       ] la valeur que l'on cherche en fonction de la clé (negative donc soit true soit false dans ce cas)
 	return map[bool]int{true: total * -1, false: total}[negative] // Ici on retourn le chiffre en positif si (negative == false) ou en negatif si (negative == true)
 }
-
 func Itoa(i int) string {
 	str := ""
 	negative := false
@@ -74,14 +73,13 @@ func Itoa(i int) string {
 		i *= -1
 		negative = true
 	}
-	for y := 0; y <= 9 && i >= 0; y++ {
+	for y := 0; y <= 9; y++ {
 		if (i-y)%10 == 0 {
 			i = (i - y) / 10
 			str = string(rune(y+48)) + str
-			y = 0
-		}
-		if i == 0 {
-			break
+			if i > 0 {
+				return Itoa(i) + str
+			}
 		}
 	}
 	return map[bool]string{true: "-" + str, false: str}[negative]
