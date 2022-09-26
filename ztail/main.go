@@ -21,13 +21,13 @@ func main() {
 		content, err := os.ReadFile(a)
 		if err != nil {
 			os.Stdout.WriteString(err.Error() + "\n")
+			osExit = true
 			continue
 		}
 		ct := string(content)
 		os.Stdout.WriteString("\n==> " + a + " <==\n")
-		if len(ct)-1 <= c {
+		if len(ct) <= c {
 			os.Stdout.WriteString(string(content))
-			osExit = true
 			continue
 		}
 		for i := c; i > 0; i-- {
