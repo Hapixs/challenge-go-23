@@ -9,11 +9,7 @@ func main() {
 	a1 := 0
 	a2 := 0
 
-	if len(args) != 3 {
-		return
-	}
-
-	if !(IsNumeric(args[0]) && IsNumeric(args[2])) {
+	if len(args) != 3 || (!IsNumeric(args[0]) && IsNumeric(args[2])) {
 		return
 	}
 
@@ -24,37 +20,20 @@ func main() {
 		return
 	}
 
-	switch args[1] {
-	case "*":
-		Display(a1 * a2)
-	case "/":
-		if a2 == 0 {
-			os.Stdout.WriteString("No division by 0" + "\n")
-			return
-		}
-		Display(a1 / a2)
-	case "%":
-		if a2 == 0 {
-			os.Stdout.WriteString("No modulo by 0" + "\n")
-			return
-		}
-		Display(a1 % a2)
-	case "+":
-		Display(a1 + a2)
-	case "-":
-		Display(a1 - a2)
+	operator := args[1]
+
+	if (operator == "/" || operator == "%") && a2 <= 0 {
+		os.Stdout.WriteString("No " + map[string]string{"/": "division", "%": "modulo"}[operator] + " by 0 \n")
+		return
 	}
+
+	Display(map[string]int{"*": a1 * a2, "/": a1 / a2, "%": a1 % a2, "+": a1 + a2, "-": a1 - a2}[operator])
 }
 
 func Display(i int) {
-	if i >= 9223372036854775806 {
-		return
+	if i < 9223372036854775806 {
+		os.Stdout.WriteString(Itoa(i) + "\n")
 	}
-	str := Itoa(i)
-	if str == "-" || str == "" || str == " " {
-		return
-	}
-	os.Stdout.WriteString(str + "\n")
 }
 
 func IsNumeric(s string) bool {
@@ -84,28 +63,21 @@ func Atoi(s string) int {
 }
 
 func Itoa(i int) string {
-	negative := i < 0
-	if negative {
-		i *= -1
-	}
 	str := ""
-	if i == 0 {
-		return "0"
+	negative := false
+	if i < 0 {
+		i *= -1
+		negative = true
 	}
-	for i > 0 {
-		if i <= 9 && i > 0 {
-			str = string(rune(i+48)) + str
+	for y := 0; y <= 9 && i >= 0; y++ {
+		if (i-y)%10 == 0 {
+			i = (i - y) / 10
+			str = string(rune(y+48)) + str
+			y = 0
+		}
+		if i == 0 {
 			break
 		}
-		for y := 0; y <= 9; y++ {
-			if (i-y)%10 == 0 {
-				i = (i - y) / 10
-				str = string(rune(y+48)) + str
-			}
-		}
 	}
-	if negative {
-		str = "-" + str
-	}
-	return str
+	return map[bool]string{true: "-" + str, false: str}[negative]
 }
