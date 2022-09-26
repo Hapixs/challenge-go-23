@@ -8,7 +8,6 @@ func main() {
 	args := os.Args[1:]
 	a1 := 0
 	a2 := 0
-	op := ' '
 
 	if len(args) > 3 || len(args) < 3 {
 		return
