@@ -2,7 +2,7 @@ package piscine
 
 func SortWordArr(s []string) {
 	for i := 0; i < len(s); i++ {
-		for j := i; j > 0 && rune(s[j-1][0]) > rune(s[j][0]); j-- {
+		for j := i; j > 0 && s[j-1] > s[j]; j-- {
 			s[j-1], s[j] = s[j], s[j-1]
 		}
 	}
@@ -15,4 +15,8 @@ func SortWordArr(s []string) {
 
 [ HlNj8yy00Cdp 7Ibkunql  Kkm 8 6sd PcZpfx3 HkjbLGnw5n NG MBqFmM9 V2CBP glw3lNkQ fzss g5URlYJ8oCZ5G lbLEZV6npYp5L]
 [ HlNj8yy00Cdp 7Ibkunql  Kkm 8 6sd PcZpfx3 HkjbLGnw5n NG MBqFmM9 V2CBP g5URlYJ8oCZ5G glw3lNkQ fzss lbLEZV6npYp5L]
+
+[m jRfE TUyATO 6TewLRb y9cK  G9C6JjyQZfN e  Os4hIp2d 2er OE LXY2DMDnVL qsp9mTHi4DQAR eY Ab7r1Z BrB qOJ krgt  h8F]
+[ Os4hIp2d 2er 6TewLRb y9cK  G9C6JjyQZfN e OE LXY2DMDnVL eY Ab7r1Z BrB m jRfE TUyATO qsp9mTHi4DQAR qOJ krgt  h8F]
+[ Os4hIp2d 2er 6TewLRb y9cK  G9C6JjyQZfN e OE LXY2DMDnVL eY Ab7r1Z BrB m jRfE TUyATO qOJ krgt  h8F qsp9mTHi4DQAR]
 */
