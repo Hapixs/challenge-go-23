@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"github.com/01-edu/z01"
+)
 
 type point struct {
 	x int
@@ -17,5 +19,24 @@ func main() {
 
 	setPoint(points)
 
-	fmt.Printf("x = %d, y = %d\n", points.x, points.y)
+	str := "x = " + Itoa(points.x) + ", y = " + Itoa(points.y) + "\n"
+	for _, c := range str {
+		z01.PrintRune(c)
+	}
+}
+
+func Itoa(i int) string {
+	str := ""
+	for i > 0 {
+		if i <= 9 && i > 0 {
+			return str + string(rune(i+48))
+		}
+		for y := 0; y <= 9; y++ {
+			if (i-y)%10 == 0 {
+				i = (i - y) / 10
+				str += string(rune(y + 48))
+			}
+		}
+	}
+	return str
 }
