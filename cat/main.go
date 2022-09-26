@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -11,9 +10,7 @@ func main() {
 	args := os.Args[1:]
 
 	if len(args) == 0 {
-		reader := bufio.NewReader(os.Stdin)
-		c, _ := reader.ReadString('\n')
-		fmt.Print(c + "\n")
+		args = append(args, os.Stdin.Name())
 		return
 	}
 	for _, a := range args {
