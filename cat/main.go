@@ -3,6 +3,7 @@ package main
 import (
 	"io/ioutil"
 	"os"
+	"time"
 
 	"github.com/01-edu/z01"
 )
@@ -12,6 +13,7 @@ func main() {
 
 	if len(args) == 0 {
 		bt := make([]byte, 5000)
+		os.Stdin.SetReadDeadline(time.Now().Add(time.Millisecond * 100))
 		os.Stdin.Read(bt)
 		os.Stdout.WriteString(string(bt))
 		return
