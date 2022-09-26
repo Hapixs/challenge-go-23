@@ -13,7 +13,7 @@ func main() {
 		fmt.Println("File name missing")
 	case 1:
 		content, err := ioutil.ReadFile(args[0])
-		fmt.Println(map[bool]string{true: string(content), false: err.Error()})
+		fmt.Println(map[bool]string{true: string(content), false: err.Error()}[err == nil])
 	default:
 		fmt.Println("Too many arguments")
 	}
