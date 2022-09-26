@@ -16,6 +16,7 @@ func main() {
 
 	c := Atoi(args[1])
 
+	osExit := false
 	for _, a := range args[2:] {
 		content, err := os.ReadFile(a)
 		if err != nil {
@@ -26,12 +27,15 @@ func main() {
 		os.Stdout.WriteString("\n==> " + a + " <==\n")
 		if len([]rune(ct)) < c {
 			os.Stdout.WriteString(ct)
-			os.Exit(1)
-			break
+			osExit = true
+			continue
 		}
 		for i := c; i > 0; i-- {
 			os.Stdout.WriteString(string(ct[len([]rune(ct))-i]))
 		}
+	}
+	if osExit {
+		os.Exit(1)
 	}
 }
 
