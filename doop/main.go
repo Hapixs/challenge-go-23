@@ -23,7 +23,7 @@ func main() {
 	operator := args[1]
 
 	if (operator == "/" || operator == "%") && a2 <= 0 {
-		os.Stdout.WriteString("No " + map[string]string{"/": "division", "%": "modulo"}[operator] + " by 0 \n")
+		os.Stdout.WriteString("No " + map[string]string{"/": "division", "%": "modulo"}[operator] + " by 0\n")
 		return
 	}
 
