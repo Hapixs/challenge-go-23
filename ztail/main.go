@@ -25,7 +25,7 @@ func main() {
 		}
 		ct := string(content)
 		os.Stdout.WriteString("\n==> " + a + " <==\n")
-		if len(ct) <= c+1 {
+		if len(ct) <= c {
 			for i := 0; i < len([]rune(ct)); i++ {
 				os.Stdout.WriteString(string([]rune(ct)[i]))
 			}
