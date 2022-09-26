@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 )
 
@@ -27,8 +26,16 @@ func main() {
 		Display(a1 * a2)
 		break
 	case "/":
+		if a2 == 0 {
+			os.Stdout.Write([]byte("No division by 0"))
+			return
+		}
 		Display(a1 / a2)
 	case "%":
+		if a2 == 0 {
+			os.Stdout.Write([]byte("No modulo by 0"))
+			return
+		}
 		Display(a2 % a2)
 		break
 	case "+":
@@ -41,7 +48,7 @@ func main() {
 }
 
 func Display(i int) {
-	fmt.Println(Itoa(i))
+	os.Stdout.Write([]byte(Itoa(i)))
 }
 
 func IsNumeric(s string) bool {
