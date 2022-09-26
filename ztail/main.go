@@ -25,7 +25,7 @@ func main() {
 		}
 		ct := string(content)
 		os.Stdout.WriteString("\n==> " + a + " <==\n")
-		if len(ct) < c {
+		if len(ct) <= c {
 			os.Stdout.WriteString(ct)
 			osExit = true
 			continue
