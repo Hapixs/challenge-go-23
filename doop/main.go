@@ -43,6 +43,10 @@ func main() {
 }
 
 func Display(i int) {
+	str := Itoa(i)
+	if str == "-" || str == "" || str == " " {
+		return
+	}
 	os.Stdout.WriteString(Itoa(i) + "\n")
 }
 
