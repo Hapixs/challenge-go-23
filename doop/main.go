@@ -25,13 +25,13 @@ func main() {
 		Display(a1 * a2)
 	case "/":
 		if a2 == 0 {
-			os.Stdout.Write([]byte("No division by 0" + "\n"))
+			os.Stdout.WriteString("No division by 0" + "\n")
 			return
 		}
 		Display(a1 / a2)
 	case "%":
 		if a2 == 0 {
-			os.Stdout.Write([]byte("No modulo by 0" + "\n"))
+			os.Stdout.WriteString("No modulo by 0" + "\n")
 			return
 		}
 		Display(a1 % a2)
@@ -43,7 +43,7 @@ func main() {
 }
 
 func Display(i int) {
-	os.Stdout.Write([]byte(Itoa(i) + "\n"))
+	os.Stdout.WriteString(Itoa(i) + "\n")
 }
 
 func IsNumeric(s string) bool {
