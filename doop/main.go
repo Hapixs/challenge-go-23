@@ -9,7 +9,7 @@ func main() {
 	a1 := 0
 	a2 := 0
 
-	if len(args) > 3 || len(args) < 3 {
+	if len(args) != 3 {
 		return
 	}
 
@@ -23,31 +23,27 @@ func main() {
 	switch args[1] {
 	case "*":
 		Display(a1 * a2)
-		break
 	case "/":
 		if a2 == 0 {
-			os.Stdout.Write([]byte("No division by 0"))
+			os.Stdout.Write([]byte("No division by 0" + "\n"))
 			return
 		}
 		Display(a1 / a2)
 	case "%":
 		if a2 == 0 {
-			os.Stdout.Write([]byte("No modulo by 0"))
+			os.Stdout.Write([]byte("No modulo by 0" + "\n"))
 			return
 		}
-		Display(a2 % a2)
-		break
+		Display(a1 % a2)
 	case "+":
 		Display(a1 + a2)
-		break
 	case "-":
 		Display(a1 - a2)
-		break
 	}
 }
 
 func Display(i int) {
-	os.Stdout.Write([]byte(Itoa(i)))
+	os.Stdout.Write([]byte(Itoa(i) + "\n"))
 }
 
 func IsNumeric(s string) bool {
