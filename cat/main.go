@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+
+	"github.com/01-edu/z01"
 )
 
 func main() {
@@ -19,6 +21,8 @@ func main() {
 			fmt.Println(err)
 			continue
 		}
-		fmt.Print(string(content))
+		for _, c := range string(content) {
+			z01.PrintRune(c)
+		}
 	}
 }
