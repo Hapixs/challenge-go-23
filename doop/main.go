@@ -86,7 +86,7 @@ func Itoa(i int) string {
 	}
 	str := ""
 	for i > 0 {
-		if i <= 9 && i > 0 {
+		if i <= 9 && i >= 0 {
 			str = string(rune(i+48)) + str
 			break
 		}
