@@ -17,7 +17,7 @@ func main() {
 	for _, a := range args {
 		content, err := ioutil.ReadFile(a)
 		if err != nil {
-			for _, c := range err.Error() {
+			for _, c := range "ERROR:" + err.Error() {
 				z01.PrintRune(c)
 			}
 			z01.PrintRune('\n')
