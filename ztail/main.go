@@ -17,15 +17,18 @@ func main() {
 	c := Atoi(args[1])
 
 	osExit := false
-	for _, a := range args[2:] {
+	for i, a := range args[2:] {
 		content, err := os.ReadFile(a)
 		if err != nil {
 			os.Stdout.WriteString(err.Error() + "\n")
 			osExit = true
 			continue
 		}
+		if i != 0 && i != len(args)-1 {
+			os.Stdout.WriteString("\n")
+		}
 		ct := string(content)
-		os.Stdout.WriteString("\n==> " + a + " <==\n")
+		os.Stdout.WriteString("==> " + a + " <==\n")
 		if len(ct) <= c {
 			os.Stdout.WriteString(string(content))
 			continue
