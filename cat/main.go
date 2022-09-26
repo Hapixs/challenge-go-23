@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
 	"os"
 
@@ -18,7 +17,10 @@ func main() {
 	for _, a := range args {
 		content, err := ioutil.ReadFile(a)
 		if err != nil {
-			fmt.Println(err)
+			for _, c := range err.Error() {
+				z01.PrintRune(c)
+			}
+			z01.PrintRune('\n')
 			continue
 		}
 		for _, c := range string(content) {
