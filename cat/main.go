@@ -21,6 +21,7 @@ func main() {
 				z01.PrintRune(c)
 			}
 			z01.PrintRune('\n')
+			os.Exit(1)
 			continue
 		}
 		for _, c := range string(content) {
