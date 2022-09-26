@@ -27,7 +27,12 @@ func main() {
 		return
 	}
 
-	Display(map[string]int{"*": a1 * a2, "/": a1 / a2, "%": a1 % a2, "+": a1 + a2, "-": a1 - a2}[operator])
+	for k, v := range map[string]int{"*": a1 * a2, "/": a1 / a2, "%": a1 % a2, "+": a1 + a2, "-": a1 - a2} {
+		if operator == k {
+			Display(v)
+			return
+		}
+	}
 }
 
 func Display(i int) {
