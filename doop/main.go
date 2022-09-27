@@ -65,6 +65,9 @@ func Atoi(s string) int {
 }
 
 func Itoa(i int) string {
+	if i == 0 {
+		return "0"
+	}
 	str := ""
 	negative := false
 	if i < 0 {
@@ -72,10 +75,7 @@ func Itoa(i int) string {
 		negative = true
 	}
 	for i > 0 {
-		if i <= 9 && i > 0 {
-			return string(rune(i+48)) + str
-		}
-		y = i%10
+		y := i%10
 		i = (i - y) / 10
 		str = string(rune(y+48)) + str
 	}
