@@ -13,8 +13,8 @@ type List struct {
 func ListPushBack(l *List, data interface{}) {
 	current := l.Head
 	for {
-		if current.Next == nil {
-			current.Next = l.Tail
+		if current == nil {
+			current = l.Tail
 			break
 		} else {
 			current = current.Next
