@@ -1,14 +1,10 @@
 package piscine
 
-func ListReverse(l *List) *List {
-	list := &List{}
+func ListReverse(l *List) {
 	it := l.Head
-	if it == nil {
-		return nil
-	}
+	ListClear(l)
 	for it != nil {
-		ListPushFront(list, it.Data)
+		ListPushFront(l, it.Data)
 		it = it.Next
 	}
-	return l
 }
