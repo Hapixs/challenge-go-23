@@ -11,14 +11,12 @@ type List struct {
 }
 
 func ListPushBack(l *List, data interface{}) {
-	current := l.Head
-	for {
-		if current == nil {
-			current = l.Tail
-			break
-		} else {
-			current = current.Next
-		}
+	node := &NodeL{Data: data}
+	if l.Head == nil {
+		l.Head = node
+		l.Tail = node
+	} else {
+		l.Tail.Next = node
+		l.Head.Next = l.Tail
 	}
-	l.Tail = &NodeL{data, &NodeL{}}
 }
