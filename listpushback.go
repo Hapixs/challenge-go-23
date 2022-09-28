@@ -12,7 +12,7 @@ type List struct {
 
 func ListPushBack(l *List, data interface{}) {
 	l.Head.Next = l.Tail
-	current := l.Head.Next
+	current := l.Head
 	for {
 		if current.Next == nil {
 			current.Next = l.Tail
