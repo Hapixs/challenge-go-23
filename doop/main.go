@@ -49,19 +49,19 @@ func IsNumeric(s string) bool {
 }
 
 func Atoi(s string) int {
-	negative := false     
-	total := 0             
-	for _, c := range s { 
-		if c >= 48 && c <= 57 { 
-			total = total*10 + int(c-48) 
-			continue                     
-		} else if c == '-' || c == '+' && total == 0 { 
-			negative = c == '-' 
-			continue 
+	negative := false
+	total := 0
+	for _, c := range s {
+		if c >= 48 && c <= 57 {
+			total = total*10 + int(c-48)
+			continue
+		} else if c == '-' || c == '+' && total == 0 {
+			negative = c == '-'
+			continue
 		}
 		return 0
 	}
-	return map[bool]int{true: total * -1, false: total}[negative] 
+	return map[bool]int{true: total * -1, false: total}[negative]
 }
 
 func Itoa(i int) string {
@@ -75,7 +75,7 @@ func Itoa(i int) string {
 		negative = true
 	}
 	for i > 0 {
-		y := i%10
+		y := i % 10
 		i = (i - y) / 10
 		str = string(rune(y+48)) + str
 	}
