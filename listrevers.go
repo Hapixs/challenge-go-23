@@ -1,6 +1,6 @@
 package piscine
 
-func ListRevers(l *List) *List {
+func ListReverse(l *List) *List {
 	list := &List{}
 	it := l.Head
 	if it == nil {
