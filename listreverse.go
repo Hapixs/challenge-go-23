@@ -6,7 +6,7 @@ func ListReverse(l *List) *List {
 	if it == nil {
 		return nil
 	}
-	for it.Next != nil {
+	for it != nil {
 		ListPushFront(list, it.Data)
 		it = it.Next
 	}
