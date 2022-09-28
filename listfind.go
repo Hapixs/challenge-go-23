@@ -7,7 +7,7 @@ func CompStr(a, b interface{}) bool {
 func ListFind(l *List, ref interface{}, comp func(a, b interface{}) bool) *interface{} {
 	it := l.Head
 	for it != nil {
-		if comp(ref, it) {
+		if comp(ref, it.Data) {
 			return &it.Data
 		}
 		it = it.Next
