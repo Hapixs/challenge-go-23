@@ -4,7 +4,7 @@ func BTreeApplyByLevel(root *TreeNode, f func(...interface{}) (int, error)) {
 	if root == nil {
 		return
 	}
-
+	f(root.Data)
 	for _, q := range GetFromLevel(root) {
 		f(q.Data)
 	}
