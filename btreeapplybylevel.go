@@ -1,10 +1,8 @@
 package piscine
 
-import "errors"
-
 func BTreeApplyByLevel(root *TreeNode, f func(...interface{})) (int, error) {
 	if root == nil {
-		return 0, errors.New("root is nil")
+		return 0, nil
 	}
 	f(root.Data)
 	right, left := root.Left, root.Right
