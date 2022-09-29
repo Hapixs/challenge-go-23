@@ -11,5 +11,5 @@ func BTreeLevelCount(root *TreeNode) int {
 	if root.Right != nil {
 		count += BTreeLevelCount(root.Right)
 	}
-	return count
+	return count - 1
 }
