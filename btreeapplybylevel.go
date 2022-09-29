@@ -17,9 +17,12 @@ func GetFromLevel(root *TreeNode) []*TreeNode {
 	}
 	if root.Left != nil {
 		queue = append(queue, root.Left)
+		if root.Left.Left != nil {
+			queue = append(queue, GetFromLevel(root.Left)...)
+		}
 	}
 	if root.Right != nil {
 		queue = append(queue, root.Right)
 	}
-	return append(append(queue, GetFromLevel(root.Left)...), GetFromLevel(root.Right)...)
+	return append(GetFromLevel(root.Right)...)
 }
