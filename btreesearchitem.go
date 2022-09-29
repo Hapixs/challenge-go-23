@@ -4,6 +4,9 @@ func BTreeSearchItem(root *TreeNode, elem string) *TreeNode {
 	if root == nil {
 		return nil
 	}
+	if root.Data == elem {
+		return root
+	}
 	if root.Left != nil {
 		if root.Left.Data == elem {
 			return root.Left
@@ -22,5 +25,5 @@ func BTreeSearchItem(root *TreeNode, elem string) *TreeNode {
 			return rt
 		}
 	}
-	return root
+	return nil
 }
