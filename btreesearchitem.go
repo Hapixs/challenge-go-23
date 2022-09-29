@@ -22,4 +22,5 @@ func BTreeSearchItem(root *TreeNode, elem string) *TreeNode {
 			return rt
 		}
 	}
+	return root
 }
