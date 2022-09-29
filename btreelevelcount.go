@@ -1,18 +1,9 @@
 package piscine
 
 func BTreeLevelCount(root *TreeNode) int {
-	count := 0
 	if root == nil {
 		return 0
 	}
-	if root.Left != nil {
-		count += 1 + BTreeLevelCount(root.Left)
-	}
-	if root.Right != nil {
-		count += 1 + BTreeLevelCount(root.Right)
-	}
-	if count == 1 {
-		count++
-	}
-	return count
+	left, right := BTreeLevelCount(root.Left), BTreeLevelCount(root.Right)
+	return map[bool]int{true: left + 1, false: right + 1}[left > right]
 }
