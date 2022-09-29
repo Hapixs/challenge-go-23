@@ -5,10 +5,10 @@ func BTreeApplyPostorder(root *TreeNode, f func(...interface{}) (int, error)) {
 		return
 	}
 	if root.Left != nil {
-		BTreeApplyInorder(root.Left, f)
+		BTreeApplyPostorder(root.Left, f)
 	}
 	if root.Right != nil {
-		BTreeApplyInorder(root.Right, f)
+		BTreeApplyPostorder(root.Right, f)
 	}
 	f(root.Data)
 }
