@@ -1,8 +1,8 @@
 package piscine
 
-func BTreeApplyByLevel(root *TreeNode, f func(...interface{})) (int, error) {
+func BTreeApplyByLevel(root *TreeNode, f func(...interface{}) (int, error)) {
 	if root == nil {
-		return 1, nil
+		return
 	}
 	right, left := root.Left, root.Right
 	if left != nil {
@@ -13,5 +13,4 @@ func BTreeApplyByLevel(root *TreeNode, f func(...interface{})) (int, error) {
 		f(right.Data)
 		BTreeApplyByLevel(right, f)
 	}
-	return 0, nil
 }
