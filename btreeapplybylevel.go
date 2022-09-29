@@ -4,22 +4,16 @@ func BTreeApplyByLevel(root *TreeNode, f func(...interface{}) (int, error)) {
 	if root == nil {
 		return
 	}
-	f(root.Data)
-	for _, q := range GetFromLevel(root) {
-		f(q.Data)
+	queue := []*TreeNode{root}
+	for len(queue) > 0 {
+		node := queue[0]
+		queue = queue[1:]
+		f(node.Data)
+		if node.Left != nil {
+			queue = append(queue, node.Left)
+		}
+		if node.Right != nil {
+			queue = append(queue, node.Right)
+		}
 	}
-}
-
-func GetFromLevel(root *TreeNode) []*TreeNode {
-	queue := []*TreeNode{}
-	if root == nil {
-		return queue
-	}
-	if root.Left != nil {
-		queue = append(queue, root.Left)
-	}
-	if root.Right != nil {
-		queue = append(queue, root.Right)
-	}
-	return append(append(queue, GetFromLevel(root.Right)...), GetFromLevel(root.Left)...)
 }
