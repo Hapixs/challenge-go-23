@@ -7,35 +7,19 @@ import (
 func main() {
 	args := os.Args[1:]
 
-	if len(args) != 3 || (!IsNumeric(args[0]) && IsNumeric(args[2])) {
+	if len(args) != 3 || (!IsNumeric(args[0]) && IsNumeric(args[2])) || len(args[0]) > 8 || len(args[2]) > 8 {
 		return
 	}
 
 	a1 := Atoi(args[0])
 	a2 := Atoi(args[2])
 
-	if a1 >= 9223372036800000000 || a2 >= 9223372036800000000 {
-		return
-	}
-
 	operator := args[1]
 
-	if (operator == "/" || operator == "%") && a2 <= 0 {
+	if (operator == "/" || operator == "%") && a2 == 0 {
 		os.Stdout.WriteString("No " + map[string]string{"/": "division", "%": "modulo"}[operator] + " by 0\n")
-		return
-	}
-
-	for k, v := range map[string]int{"*": a1 * a2, "/": a1 / a2, "%": a1 % a2, "+": a1 + a2, "-": a1 - a2} {
-		if operator == k {
-			Display(v)
-			return
-		}
-	}
-}
-
-func Display(i int) {
-	if i < 9223372036854775806 {
-		os.Stdout.WriteString(Itoa(i) + "\n")
+	} else if val, ok := map[string]int{"*": a1 * a2, "/": a1 / a2, "%": a1 % a2, "+": a1 + a2, "-": a1 - a2}[operator]; ok {
+		os.Stdout.WriteString(Itoa(val) + "\n")
 	}
 }
 
